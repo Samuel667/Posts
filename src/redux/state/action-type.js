@@ -1,0 +1,5 @@
+export const ActionTypes={
+    SET_PHOTO :"SET_PHOTO",
+    VIEWED_PHOTO :"VIEWED_PHOTO",  
+    COMMENTED_PHOTO : "COMMENTED_PHOTO"
+};  
