@@ -2,11 +2,11 @@ import {useState} from 'react';
 import { Link } from "react-router-dom";
 
 const Login = () =>{
-let[signIn,setSignIn] = useState({name:"", password:""});
+let[signIn,setSignIn] = useState({firstName:"", password:""});
 const storeData = JSON.parse(localStorage.getItem("username"));
-console.log(storeData)
-const answername = storeData.map((val => val.name)) 
-const answerpassword = storeData.map((val)=>val.password);
+console.log(storeData.firstName)
+const answername = storeData.firstName
+const answerpassword = storeData.password;
  
 const wrong =()=>{
     alert("wrong password or username")
@@ -16,22 +16,26 @@ const wrong =()=>{
           <center>
               <form>
                   <div className=' col-6 from-group'>
-                    <label for='name'className='text-warning'> Name:</label>
-                    <input className='form-control'  id="one" type="text" placeholder=" Enter your Name" value={signIn.name} onChange={(e)=>setSignIn({...signIn,name:e.target.value})} />
+                    <label htmlFor='firstName'className='text-warning'>First Name:</label>
+                    <input className='form-control'  id="one" type="text" placeholder=" Enter your Name" value={signIn.firstName} onChange={(e)=>setSignIn({...signIn,firstName:e.target.value})} />
                   </div>
                   <div className=' col-6 from-group mb-4'>
-                    <label for='password'className='text-warning'>Password:</label>
+                    <label htmlFor='password'className='text-warning'>Password:</label>
                     <input id="two" className='form-control' type="password" placeholder="Enter your Password" value={signIn.password}  onChange={(e)=>setSignIn({...signIn,password:e.target.value})}/>
                   </div>
               </form>
-             { answername == signIn.name && answerpassword == signIn.password ? 
-             <Link className='text-success mb-5' to="/postlink">
-              <button className=' px-5 mb-5 btn btn-outline-primary' >login</button><br/>
+              <div className='text-success mb-5'>
+             { answername == signIn.firstName && answerpassword == signIn.password ? 
+              <Link to="/postlink">
+              <button className='px-5 mb-5 btn btn-outline-primary' >login</button><br/>
              </Link>: 
-                  <button onClick = {()=>wrong()}>login</button> 
-             }
-             <Link to="/sign-up">Do you want to sign-up.</Link>&nbsp;
-             <Link to="/">Do you want to go Home click here</Link>
+                  <button className='px-5 mb-5 btn btn-outline-primary' onClick = {()=>wrong()}>login</button>
+                   }
+                   </div>
+                   <h2>
+             <Link className='text-outline-primary' to="/sign-up">Do you want to sign-up click here?</Link>&nbsp;
+             <Link to="/">Do you want to go Home click here?</Link>
+             </h2>
           </center>
     </div>
   )

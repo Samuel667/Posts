@@ -6,6 +6,7 @@ import Login from './component/login';
 import PostLink from './component/postlink';
 import Heres from './component/Error';
 import Signup from './component/sign-up';
+import About from './component/about-us';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
              <Route path="/postlink" component={PostLink}/>
              <Route path="/login" component={Login} />
              <Route path="/sign-up" component={Signup} />
+             <Route path="/about-us" component={About} />
              <Route component={Heres}/>
           </Switch> 
     </div>

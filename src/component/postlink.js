@@ -1,7 +1,7 @@
-import  react from  'react';
 import React, { Fragment, useEffect,useState} from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { setPosts } from '../redux/actions/PostsActions';
+import Nav from './Navigation'
 
 const PostLink =()=>{
   let[Search,setSearch]=useState();
@@ -47,13 +47,15 @@ for (let i = 0; i<= 49; i++) {
 }
 
 return(
- <Fragment>   
-   <h1 className='text-success text-center'>POSTS</h1>               
- <div className='mt-2 text-center' >
-   <div className='lead text-primary '> You can search post by ID or by TITLE </div>
-<input className='form-control mx-4'  placeholder="SEARCH BY ID OR TITLE"  onKeyUp={(event)=>Looping(event.target.value)}/>
-<div className='mb-4'>{Search}</div> 
-<hr/><br></br>
+ <Fragment >  
+ <div className="container m-5">
+  <Nav/>              
+ <div className='mt-2 text-center'>
+ <div className='lead text-light pt-3'> You can search post by ID or by TITLE </div>
+ <input className='form-control mx-4'  placeholder="SEARCH BY ID OR TITLE"  onKeyUp={(event)=>Looping(event.target.value)}/>
+ <div className='mb-4'>{Search}</div> 
+ <hr/><br></br>
+ <h1 className='text-success text-center'>POSTS</h1> 
  {setPostList!==[] ? setPostList.map((pas=>{
   
     for (let i = 50; i>=pas.id; i--) { 
@@ -73,6 +75,7 @@ return(
 alert("Get connected to the internet and refresh")
   }
    </div> 
+   </div>
  </Fragment>
 )    
 }
