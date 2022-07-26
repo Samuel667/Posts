@@ -1,3 +1,4 @@
 body{
-    background-image: url('./component/pix.jpg')
+    background-image: url('./component/news-post.jpg');
+    background-size:500%; 
 }

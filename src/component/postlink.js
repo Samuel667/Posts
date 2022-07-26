@@ -21,17 +21,17 @@ for (let i = 0; i<= 49; i++) {
       if (setPostList[i].id === Number(event)) {
       let receiverPost =  <h5>
         <div >
-         <div id="postsId" style={{color:'red', fontFamily:'cursive'}}><big>ID - {setPostList[i].id}</big></div>
-         <div style={{color:'royalblue', fontFamily:' Georgia, Times New Roman, Times, serif'}}>TITLE -{setPostList[i].title}</div> 
-         <div style={{color:'purple'}}> <small>ALBUMID - {setPostList[i].albumId}</small></div>
+         <div id="postsId" style={{color:'lightblue', fontFamily:'cursive'}}><big>ID - {setPostList[i].id}</big></div>
+         <div style={{color:'antiquewhite', fontFamily:' Georgia, Times New Roman, Times, serif'}}><big>TITLE</big> -{setPostList[i].title}</div> 
+         <div style={{color:'aqua'}}> <small>ALBUMID - {setPostList[i].albumId}</small></div>
         </div>
         </h5> 
        setSearch(receiverPost)   
       } else if (setPostList[i].title == event){
         let receiverPost = <h5>
         <div >
-         <div id="postsId" style={{color:'red', fontFamily:'cursive'}}><big>ID - {setPostList[i].id}</big></div>
-         <div style={{color:'royalblue', fontFamily:' Georgia, Times New Roman, Times, serif'}}>TITLE -{setPostList[i].title}</div> 
+         <div id="postsId" style={{color:'lightblue', fontFamily:'cursive'}}><big>ID - {setPostList[i].id}</big></div>
+         <div style={{color:'antiquewhite', fontFamily:' Georgia, Times New Roman, Times, serif'}}><big>TITLE</big> -{setPostList[i].title}</div> 
          <div style={{color:'purple'}}> <small>ALBUMID - {setPostList[i].albumId}</small></div>
         </div>
         </h5> 
@@ -39,32 +39,32 @@ for (let i = 0; i<= 49; i++) {
       }else if(!event === setPostList[i].title){
         setSearch(<h4> Incorrect! enter coorect TITLE</h4>)
       }else if (event === ""){
-        setSearch(<h4> Searched detail here</h4>)
+        setSearch(<h4 style={{color:'green'}}> Searched detail here</h4>)
       }else if (Number(event)>50 ){
-         setSearch(<h4> Incorrect! enter correct ID or TITLE</h4>)
+         setSearch(<h4 style={{color:'red'}}> Incorrect! enter correct ID or TITLE</h4>)
    }
   }
 }
 
 return(
  <Fragment >  
- <div className="container m-5">
+ <div className="container text-center m-5 ">
   <Nav/>              
- <div className='mt-2 text-center'>
- <div className='lead text-light pt-3'> You can search post by ID or by TITLE </div>
+ <div className='mt-2  justify-content-center'>
+ <div className=' lead mb-1 pt-3' style={{color:'violet'}}> You can search post by ID or by TITLE </div>
  <input className='form-control mx-4'  placeholder="SEARCH BY ID OR TITLE"  onKeyUp={(event)=>Looping(event.target.value)}/>
  <div className='mb-4'>{Search}</div> 
  <hr/><br></br>
- <h1 className='text-success text-center'>POSTS</h1> 
+ <h1 className='text-warning text-center'>POSTS</h1> 
  {setPostList!==[] ? setPostList.map((pas=>{
   
     for (let i = 50; i>=pas.id; i--) { 
-      return(
+    return(
         <section key={pas.id}> 
-          <h5 >
-         <div style={{color:'red', fontFamily:'cursive'}}><big>ID - {pas.id}</big> </div><br/>
-         <div style={{color:'royalblue',fontFamily:'Georgia, Times New Roman, Times, serif'}} > TITLE - {pas.title}</div> <br/>
-         <div style={{color:'purple'}}> <small>ALBUMID - {pas.albumId} </small></div>   
+          <h5 className='m-5' >
+           <div style={{color:'lightblue', fontFamily:'cursive'}}><big>ID - {pas.id}</big> </div><br/>
+           <div style={{color:'antiquewhite',fontFamily:'Georgia, Times New Roman, Times, serif'}} ><big>TITLE</big> - {pas.title}</div> <br/>
+           <div style={{color:'aqua'}}> <small>ALBUMID - {pas.albumId} </small></div>   
          </h5>
          <hr/>
       </section>
